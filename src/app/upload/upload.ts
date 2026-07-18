@@ -49,7 +49,7 @@ export class UploadComponent implements OnInit {
     }
   }
 
-  // Obsługa masowego wgrywania zdjęć z limitem współbieżności do 3 plików
+// Obsługa masowego wgrywania zdjęć z limitem współbieżności do 3 plików
   async onFilesSelected(event: Event) {
     const input = event.target as HTMLInputElement;
     if (!input.files || input.files.length === 0) return;
@@ -87,9 +87,15 @@ export class UploadComponent implements OnInit {
 
     await Promise.all(runningPool);
 
+    // --- POPRAWKA: Najpierw przywracamy stan przycisku i czyścimy input ---
     this.isUploading = false;
     this.uploadProgressText = '';
-    alert(`Sukces! Wszystkie zdjęcia (${totalFiles}) zostały zapisane w naszej ślubnej galerii Google Drive. Dziękujemy!`);
     input.value = ''; 
+
+    // --- Na samym końcu pokazujemy powiadomienie (przycisk już zdąży się zmienić) ---
+    // Użycie setTimeout pozwala przeglądarce natychmiast przerysować widok (render) przed zablokowaniem przez alert
+    setTimeout(() => {
+      alert(`Sukces! Wszystkie zdjęcia (${totalFiles}) zostały zapisane w naszej ślubnej galerii Google Drive. Dziękujemy!`);
+    }, 50);
   }
 }

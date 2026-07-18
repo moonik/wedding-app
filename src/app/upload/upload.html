@@ -1,0 +1,39 @@
+<div class="wedding-upload-container">
+  <div class="wedding-header">
+    <span class="wedding-title">Roman & Agnieszka Wedding</span>
+    <p class="wedding-subtitle">Help us capture the magic! Share your moments below.</p>
+  </div>
+
+  <div class="main-content">
+    
+    <div class="step-box" [class.step-complete]="driveService.accessToken()">
+      <div class="step-icon">1</div>
+      <h2>SECURE ACCESS</h2>
+      <p>Log in with Google to authorize the upload to our shared folder.</p>
+      
+      <button (click)="onLogin()" class="wedding-btn btn-gold">
+        <span *ngIf="!driveService.accessToken()">LOGIN WITH GOOGLE</span>
+        <span *ngIf="driveService.accessToken()">✓ LOGGED IN</span>
+      </button>
+    </div>
+
+    <div class="step-box" [class.step-disabled]="!driveService.accessToken()">
+      <div class="step-icon">2</div>
+      <h2>SELECT & UPLOAD</h2>
+      <p>Choose photos from your device to add to our collection.</p>
+      
+      <div class="file-input-wrapper">
+        <label for="weddingFile" class="wedding-btn btn-rose">
+          {{ driveService.accessToken() ? 'CLICK TO CHOOSE FILES' : 'LOGIN FIRST' }}
+        </label>
+        <input 
+          type="file" 
+          id="weddingFile" 
+          (change)="onFileSelected($event)" 
+          accept="image/*" 
+          [disabled]="!driveService.accessToken()">
+      </div>
+    </div>
+
+  </div>
+</div>

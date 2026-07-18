@@ -1,8 +1,9 @@
 import { Component, signal } from '@angular/core';
+import { UploadComponent } from './upload/upload';
 
 @Component({
   selector: 'app-root',
-  imports: [],
+  imports: [UploadComponent],
   templateUrl: './app.html',
   styleUrl: './app.css'
 })

@@ -179,6 +179,103 @@
     width: auto;
 }
 
+#particles-container {
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    overflow: hidden;
+    z-index: 3;
+}
+
+::ng-deep .petal {
+    position: absolute;
+    top: -10%;
+    width: 14px;
+    height: 20px;
+    border-radius: 45% 55% 60% 40% / 40% 45% 55% 60%;
+    background: radial-gradient(circle at 40% 30%, rgba(255, 214, 222, 0.95), rgba(206, 100, 134, 0.88));
+    opacity: 0;
+    pointer-events: none;
+    transform-origin: center;
+    animation: petal-fall linear forwards;
+    box-shadow: 0 0 16px rgba(255, 214, 222, 0.25);
+}
+
+@keyframes petal-fall {
+    0% {
+        transform: translateY(0) rotate(0deg);
+        opacity: 0;
+    }
+    12% {
+        opacity: 1;
+    }
+    75% {
+        opacity: 1;
+    }
+    100% {
+        transform: translateY(120vh) rotate(520deg);
+        opacity: 0;
+    }
+}
+
+.confetti-piece {
+    position: absolute;
+    top: -8%;
+    width: 14px;
+    height: 18px;
+    clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
+    background: #d79f5a;
+    box-shadow: 0 0 12px rgba(215, 159, 90, 0.5);
+    animation: confetti-fall 2.4s ease-out forwards;
+    will-change: transform, opacity;
+}
+
+.confetti-piece:nth-child(odd) {
+    background: #b96d6d;
+}
+
+.confetti-piece:nth-child(even) {
+    background: #d79f5a;
+}
+
+.confetti-piece:nth-child(1) { left: 5%; animation-delay: 0s; transform: scale(1); }
+.confetti-piece:nth-child(2) { left: 12%; animation-delay: 0.08s; transform: scale(1.1); }
+.confetti-piece:nth-child(3) { left: 19%; animation-delay: 0.04s; transform: scale(0.95); }
+.confetti-piece:nth-child(4) { left: 27%; animation-delay: 0.15s; transform: scale(1.05); }
+.confetti-piece:nth-child(5) { left: 33%; animation-delay: 0.03s; transform: scale(0.9); }
+.confetti-piece:nth-child(6) { left: 41%; animation-delay: 0.1s; transform: scale(1.1); }
+.confetti-piece:nth-child(7) { left: 48%; animation-delay: 0.06s; transform: scale(0.85); }
+.confetti-piece:nth-child(8) { left: 55%; animation-delay: 0.16s; transform: scale(1); }
+.confetti-piece:nth-child(9) { left: 62%; animation-delay: 0.05s; transform: scale(0.95); }
+.confetti-piece:nth-child(10) { left: 70%; animation-delay: 0.12s; transform: scale(1.05); }
+.confetti-piece:nth-child(11) { left: 78%; animation-delay: 0.09s; transform: scale(0.9); }
+.confetti-piece:nth-child(12) { left: 86%; animation-delay: 0.07s; transform: scale(1); }
+.confetti-piece:nth-child(13) { left: 92%; animation-delay: 0.13s; transform: scale(0.8); }
+.confetti-piece:nth-child(14) { left: 18%; animation-delay: 0.11s; transform: scale(0.85); }
+.confetti-piece:nth-child(15) { left: 44%; animation-delay: 0.14s; transform: scale(1.2); }
+.confetti-piece:nth-child(16) { left: 58%; animation-delay: 0.02s; transform: scale(1); }
+.confetti-piece:nth-child(17) { left: 25%; animation-delay: 0.17s; transform: scale(0.9); }
+.confetti-piece:nth-child(18) { left: 67%; animation-delay: 0.18s; transform: scale(1.1); }
+.confetti-piece:nth-child(19) { left: 38%; animation-delay: 0.2s; transform: scale(0.95); }
+.confetti-piece:nth-child(20) { left: 85%; animation-delay: 0.21s; transform: scale(0.8); }
+
+@keyframes confetti-fall {
+    0% {
+        transform: translateY(0) rotate(0deg);
+        opacity: 0;
+    }
+    15% {
+        opacity: 1;
+    }
+    90% {
+        opacity: 1;
+    }
+    100% {
+        transform: translateY(260px) rotate(540deg);
+        opacity: 0;
+    }
+}
+
 .upload-progress-text {
     position: absolute;
     top: 120%;
@@ -290,13 +387,46 @@ footer {
     border-top: 1px solid rgba(228, 183, 160, 0.2);
 }
 
-::ng-deep .petal {
+/* --- Responsywne warstwy parallax hero --- */
+.hero-parallax-layer {
     position: absolute;
-    background-color: rgba(228, 183, 160, 0.6);
-    border-radius: 150px 0 150px 150px;
-    animation: fade 10s infinite linear, float 5s infinite ease-in-out;
-    opacity: 0;
+    inset: 0;
     pointer-events: none;
+    z-index: 0;
+    opacity: 0.85;
+    animation: parallax-drift 30s linear infinite;
+}
+
+.hero-parallax-layer.layer-1 {
+    background: radial-gradient(circle at 15% 18%, rgba(255, 255, 255, 0.45), transparent 16%),
+                radial-gradient(circle at 85% 25%, rgba(255, 228, 221, 0.28), transparent 18%);
+}
+
+.hero-parallax-layer.layer-2 {
+    background: radial-gradient(circle at 22% 70%, rgba(255, 214, 221, 0.18), transparent 16%),
+                radial-gradient(circle at 75% 40%, rgba(255, 240, 236, 0.22), transparent 16%),
+                radial-gradient(circle at 50% 50%, rgba(255, 243, 238, 0.14), transparent 20%);
+    animation-duration: 24s;
+}
+
+.hero-parallax-layer.layer-3 {
+    background: radial-gradient(circle at 25% 40%, rgba(255, 192, 200, 0.12), transparent 14%),
+                radial-gradient(circle at 60% 75%, rgba(255, 223, 230, 0.16), transparent 16%),
+                radial-gradient(circle at 40% 25%, rgba(255, 244, 240, 0.1), transparent 18%);
+    animation-duration: 18s;
+    opacity: 0.7;
+}
+
+@keyframes parallax-drift {
+    0% {
+        transform: translateX(0) translateY(0);
+    }
+    50% {
+        transform: translateX(-24px) translateY(18px);
+    }
+    100% {
+        transform: translateX(0) translateY(0);
+    }
 }
 
 /* --- Responsywność & Fixes dla iPhone --- */

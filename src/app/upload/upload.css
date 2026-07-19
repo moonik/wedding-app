@@ -1,15 +1,16 @@
 .wedding-hero {
-    height: 100vh;
-    height: 100dvh;
+    min-height: 100vh;
+    min-height: 100svh;
+    min-height: 100dvh;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     text-align: center;
-    padding: 20px;
+    padding: 20px 20px 56px;
     position: relative;
     box-sizing: border-box;
-    overflow: hidden;
+    overflow: visible;
     background: radial-gradient(circle at top center, rgba(255, 220, 152, 0.08), transparent 24%),
                 radial-gradient(circle at bottom right, rgba(255, 206, 103, 0.06), transparent 16%);
 }
@@ -244,6 +245,26 @@
 }
 
 @media (max-width: 680px) {
+    .wedding-hero {
+        min-height: 100svh;
+        padding: 18px 16px 56px;
+        overflow: visible;
+    }
+
+    .hero-content {
+        gap: 18px;
+        padding-bottom: 12px;
+    }
+
+    .hero-photo-wrapper {
+        margin-bottom: 12px;
+    }
+
+    .hero-actions {
+        margin: 8px auto 0;
+        padding-bottom: 4px;
+    }
+
     .countdown-hero {
         gap: 4px;
         margin-bottom: 16px;
@@ -259,8 +280,9 @@
         width: min(88vw, 480px);
         max-width: 480px;
         height: auto;
-        max-height: 480px;
-        object-fit: cover;
+        max-height: min(58vh, 480px);
+        object-fit: contain;
+        object-position: center top;
         border-radius: 18px;
     }
 }
@@ -270,8 +292,9 @@
         width: min(92vw, 360px);
         max-width: 360px;
         height: auto;
-        max-height: 420px;
-        object-fit: cover;
+        max-height: min(56vh, 420px);
+        object-fit: contain;
+        object-position: center top;
         border-radius: 14px;
     }
 }
@@ -279,41 +302,28 @@
 /* Very small screens (e.g. older iPhone SE variants) - avoid top cropping */
 @media (max-width: 380px) {
     .wedding-hero {
-        height: auto;
-        min-height: 60vh;
+        min-height: 100svh;
         overflow: visible;
-        align-items: flex-start;
-        padding-top: max(env(safe-area-inset-top), 10px);
-    }
-
-    .hero-photo {
-        object-fit: contain;
-        object-position: center top;
-        width: min(94vw, 360px);
-        max-height: 56vh;
-        border-radius: 12px;
-    }
-}
-
-@media (max-width: 380px) {
-    .wedding-hero {
-        /* ensure container doesn't clip the image on very small screens */
-        height: auto;
-        overflow: visible;
-        align-items: flex-start;
-        padding-top: max(env(safe-area-inset-top), 10px);
+        align-items: center;
+        padding: max(env(safe-area-inset-top), 12px) 12px 48px;
     }
 
     .hero-content {
-        gap: 12px;
-        padding-top: 8px;
+        gap: 10px;
+        padding-top: 6px;
+    }
+
+    .hero-actions {
+        gap: 10px;
     }
 
     .hero-photo {
-        /* keep the image within viewport but larger than before to avoid cropping */
-        max-height: 56vh;
+        width: min(94vw, 360px);
+        max-width: 360px;
+        max-height: min(54vh, 320px);
         object-fit: contain;
         object-position: center top;
+        border-radius: 12px;
     }
 }
 

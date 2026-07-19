@@ -673,41 +673,158 @@ footer {
 }
 
 @media (max-width: 520px) {
+    .wedding-hero {
+        padding: 30px 14px;
+        min-height: auto;
+    }
+    .hero-seal {
+        display: none;
+    }
+    .names-wrapper {
+        gap: 8px;
+    }
     .bride-name, .groom-name {
-        font-size: 3rem;
+        font-size: 2.4rem;
     }
     .title-heart {
         font-size: 1rem;
         margin-bottom: 28px;
     }
     .subtitle {
-        font-size: 0.92rem;
-        letter-spacing: 2px;
-        margin-bottom: 30px;
+        font-size: 0.9rem;
+        letter-spacing: 1.8px;
+        margin-bottom: 26px;
+        padding: 0 10px;
     }
     .hero-actions {
         justify-content: center;
+        flex-direction: column;
+        gap: 12px;
+        align-items: stretch;
     }
     .scroll-btn, .wedding-btn {
         width: 100%;
         max-width: 100%;
         font-size: 0.9rem;
-        padding: 14px 16px;
+        padding: 12px 16px;
+        min-width: auto;
+    }
+    .upload-container {
+        width: 100%;
+        position: relative;
+        margin-top: 0;
+    }
+    .upload-progress-text {
+        top: auto;
+        bottom: -34px;
+        left: 50%;
+        transform: translateX(-50%);
+        font-size: 0.84rem;
+    }
+    .envelope-box {
+        width: min(95%, 420px);
+        aspect-ratio: 1.1;
+        border-radius: 22px;
+    }
+    .seal-button {
+        width: 100px;
+        height: 100px;
+        font-size: 2rem;
+    }
+    .envelope-instruction {
+        bottom: 22px;
+        font-size: 0.88rem;
+        padding: 0 12px;
     }
     .plan-section,
     .menu-section {
-        padding: 50px 15px;
+        padding: 40px 14px;
+        margin: 0 auto 45px;
     }
     .plan-title,
     .menu-title {
-        font-size: 2.4rem;
+        font-size: 2.2rem;
     }
-    .timeline-item {
-        margin-bottom: 30px;
+    .timeline::before,
+    .menu-section .timeline::before {
+        left: 14px;
+    }
+    .timeline-item,
+    .menu-section .timeline-item {
+        margin-bottom: 26px;
+        padding-left: 44px;
+    }
+    .timeline-item::after,
+    .menu-section .timeline-item::after {
+        left: 7px;
+        top: 20px;
+        width: 14px;
+        height: 14px;
+    }
+    .timeline-content,
+    .menu-section .timeline-content {
+        padding: 18px;
+    }
+    .time {
+        font-size: 1.8rem;
+    }
+    .timeline-content h3 {
+        font-size: 1.1rem;
+    }
+    .timeline-content p {
+        font-size: 0.92rem;
+        line-height: 1.65;
     }
     footer {
-        padding: 28px 15px;
-        font-size: 0.82rem;
+        padding: 24px 12px;
+        font-size: 0.8rem;
+    }
+}
+
+@media (max-width: 420px) {
+    .wedding-hero {
+        padding: 26px 12px;
+    }
+    .bride-name, .groom-name {
+        font-size: 2.2rem;
+        line-height: 1.05;
+    }
+    .subtitle {
+        font-size: 0.84rem;
+        letter-spacing: 1.6px;
+        margin-bottom: 22px;
+    }
+    .hero-actions {
+        gap: 10px;
+    }
+    .scroll-btn, .wedding-btn {
+        padding: 12px 14px;
+        font-size: 0.88rem;
+    }
+    .plan-section,
+    .menu-section {
+        padding: 34px 12px;
+        margin-bottom: 38px;
+    }
+    .plan-title,
+    .menu-title {
+        font-size: 2rem;
+    }
+    .timeline-content,
+    .menu-section .timeline-content {
+        padding: 16px;
+    }
+    .time {
+        font-size: 1.6rem;
+    }
+    .timeline-content h3 {
+        font-size: 1.05rem;
+    }
+    .timeline-content p {
+        font-size: 0.9rem;
+    }
+    .upload-progress-text {
+        bottom: -28px;
     }
 }
 

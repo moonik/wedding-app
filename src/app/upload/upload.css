@@ -484,6 +484,40 @@
     color: #f7e4ce;
 }
 
+/* Ensure section titles are visually aligned */
+.plan-section,
+.menu-section {
+    padding-top: 48px; /* move titles upward inside sections */
+}
+
+.plan-title,
+.menu-title {
+    margin: 0 0 22px; /* larger gap below title to separate from content */
+    padding: 0;
+    line-height: 1.05;
+}
+
+/* Mobile overrides to align section titles on small screens */
+@media (max-width: 520px) {
+    .plan-section, .menu-section {
+        padding-top: 32px !important;
+    }
+    .plan-title, .menu-title {
+        margin: 0 0 18px !important;
+        line-height: 1.05 !important;
+    }
+}
+
+@media (max-width: 420px) {
+    .plan-section, .menu-section {
+        padding-top: 28px !important;
+    }
+    .plan-title, .menu-title {
+        margin: 0 0 16px !important;
+        line-height: 1.05 !important;
+    }
+}
+
 .title-heart {
     text-align: center;
     color: #e8c683;
@@ -870,6 +904,15 @@ footer {
     border: 1px solid rgba(248, 211, 145, 0.14);
     text-align: left;
     min-height: 130px;
+}
+
+/* Final override: ensure both section titles sit at identical vertical position */
+.plan-section, .menu-section {
+    padding-top: 48px !important;
+}
+.plan-title, .menu-title {
+    margin: 0 0 22px !important;
+    line-height: 1.05 !important;
 }
 
 .menu-section .timeline-item {

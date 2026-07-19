@@ -468,7 +468,7 @@
 .plan-section {
     padding: 80px 20px;
     max-width: 800px;
-    margin: 0 auto;
+    margin: 0 auto 70px;
     box-sizing: border-box;
     background: rgba(57, 14, 23, 0.98);
     border: 1px solid rgba(255, 211, 121, 0.18);

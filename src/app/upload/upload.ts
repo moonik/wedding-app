@@ -120,10 +120,28 @@ export class UploadComponent implements OnInit, OnDestroy {
     const baseColor = Math.random() > 0.5
       ? 'rgba(255, 250, 245, 0.98), rgba(241, 233, 228, 0.9)'
       : 'rgba(255, 248, 242, 0.96), rgba(232, 214, 205, 0.86)';
+    const hasVeins = Math.random() > 0.55;
+    const veinOpacity = 0.08 + Math.random() * 0.1;
 
-    petal.style.backgroundImage = `radial-gradient(circle at 30% 30%, ${baseColor}), repeating-linear-gradient(135deg, rgba(255,255,255, ${textureOpacity}) 0, rgba(255,255,255, 0) 1px, rgba(255,255,255, 0) ${textureSpacing}px)`;
+    const veinLayer = hasVeins
+      ? `, linear-gradient(160deg, rgba(255,255,255,0) 0%, rgba(248, 236, 227, ${veinOpacity}) 28%, rgba(255, 255, 255, 0.06) 31%, rgba(236, 218, 206, ${veinOpacity * 0.8}) 35%, rgba(255,255,255,0) 100%)`
+      : '';
+
+    const veinGradient = hasVeins
+      ? `, radial-gradient(circle at 50% 10%, rgba(255,255,255, 0.14), rgba(255,255,255, 0) 24%)`
+      : '';
+
+    petal.style.backgroundImage = `radial-gradient(circle at 30% 30%, ${baseColor}), repeating-linear-gradient(135deg, rgba(255,255,255, ${textureOpacity}) 0, rgba(255,255,255, 0) 1px, rgba(255,255,255, 0) ${textureSpacing}px)${veinLayer}${veinGradient}`;
     petal.style.backgroundBlendMode = 'overlay';
-    petal.style.backgroundSize = `${size}px ${size}px, ${textureSpacing * 2}px ${textureSpacing * 2}px`;
+    petal.style.backgroundSize = `${size}px ${size}px, ${textureSpacing * 2}px ${textureSpacing * 2}px${hasVeins ? `, ${size * 2.2}px ${size * 2.2}px` : ''}`;
+
+    const shadowChance = Math.random() > 0.65;
+    if (shadowChance) {
+      const shadowOffsetX = (Math.random() - 0.5) * 4;
+      const shadowOffsetY = 2 + Math.random() * 3;
+      const shadowBlur = 4 + Math.random() * 6;
+      petal.style.boxShadow = `${shadowOffsetX}px ${shadowOffsetY}px ${shadowBlur}px rgba(30, 20, 15, 0.18)`;
+    }
 
     container.appendChild(petal);
 

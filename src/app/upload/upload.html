@@ -20,9 +20,15 @@
 
     <p class="subtitle">Cieszymy się, że będziecie z nami</p>
 
+    <div class="countdown-hero" *ngIf="countdownText">
+      <span class="countdown-hero__label">Do najpiękniejszego dnia w naszym życiu pozostało...</span>
+      <span class="countdown-hero__value">{{ countdownText }}</span>
+    </div>
+
     <!-- Akcje: Plan dnia i Twój autorski system Uploadu -->
     <div class="hero-actions">
       <button (click)="scrollToPlan()" class="scroll-btn">Zobacz Plan Dnia</button>
+      <button (click)="scrollToMenu()" class="scroll-btn">Zobacz Menu Weselne</button>
 
       <div class="upload-container">
         <!-- KROK 1: Logowanie z Google -->
@@ -59,7 +65,6 @@
         </div>
       </div>
     </div>
-
   </div>
 </header>
 
@@ -104,6 +109,54 @@
               <p>Oficjalne zakończenie zabawy. Dziękujemy, że stworzyliście z nami te piękne wspomnienia!</p>
           </div>
       </div>
+  </div>
+</section>
+
+<!-- --- SEKCJA MENU WESELANEGO --- -->
+<section class="menu-section" id="menu-weselne">
+  <h2 class="menu-title">Menu weselne</h2>
+  <div class="title-heart">♥</div>
+
+  <div class="timeline">
+    <div class="timeline-item reveal">
+      <div class="timeline-content">
+        <span class="time">Rosół</span>
+        <h3>Zupa na rozpoczęcie</h3>
+        <p>Tradycyjny, klarowny rosół z makaronem, podany w eleganckim stylu weselnym.</p>
+      </div>
+    </div>
+
+    <div class="timeline-item reveal">
+      <div class="timeline-content">
+        <span class="time">Danie główne</span>
+        <h3>Mięsny wybór</h3>
+        <p>Danie główne z pieczonym mięsem, dodatkami i sezonowymi warzywami.</p>
+      </div>
+    </div>
+
+    <div class="timeline-item reveal">
+      <div class="timeline-content">
+        <span class="time">Deser</span>
+        <h3>Słodka część</h3>
+        <p>Delikatny deser serwowany po głównym daniu, idealny do kawy i rozmów.</p>
+      </div>
+    </div>
+
+    <div class="timeline-item reveal">
+      <div class="timeline-content">
+        <span class="time">Kolacja</span>
+        <h3>Wieczorne przekąski</h3>
+        <p>Kolacja po tańcach, z lekkimi daniami, które dodadzą energii do dalszej zabawy.</p>
+      </div>
+    </div>
+
+    <div class="timeline-item reveal">
+      <div class="timeline-content">
+        <span class="time">Tort weselny</span>
+        <h3>Słodki finał</h3>
+        <p>Uroczyste krojenie tortu na zakończenie wieczoru, pełne słodkich wspomnień.</p>
+      </div>
+    </div>
   </div>
 </section>
 

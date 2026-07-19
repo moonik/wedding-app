@@ -1,10 +1,20 @@
 @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=Great+Vibes&family=Montserrat:wght@300;400;500&display=swap');
 
+*, *::before, *::after {
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+    min-height: 100%;
+}
+
 body {
     margin: 0;
     padding: 0;
-    background-color: #fbf8f5;
-    background-image: linear-gradient(rgba(251, 248, 245, 0.85), rgba(251, 248, 245, 0.4)), 
+    min-height: 100vh;
+    background-color: #f7efe8;
+    background-image: linear-gradient(rgba(247, 239, 232, 0.90), rgba(247, 239, 232, 0.72)), 
                       url('https://images.unsplash.com/photo-1519741497674-611481863552?q=80&w=1920&auto=format&fit=crop');
     background-repeat: no-repeat;
     background-position: center center;
@@ -12,8 +22,11 @@ body {
     background-attachment: fixed; /* Idealne na PC */
     font-family: 'Montserrat', sans-serif;
     color: #3a3532;
-    scroll-behavior: smooth;
     overflow-x: hidden;
+}
+
+button, input, label {
+    font-family: inherit;
 }
 
 /* Wyłączenie paraliżującego iPhone'a efektu fixed */

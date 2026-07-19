@@ -69,13 +69,14 @@
 /* --- Przyciski akcji --- */
 .hero-actions {
     display: flex;
-    gap: 20px;
+    flex-direction: row; /* Wymusza układ obok siebie */
+    gap: 15px;           /* Elegancki odstęp między przyciskami */
     align-items: center;
     justify-content: center;
-    flex-wrap: wrap;
+    flex-wrap: nowrap;   /* Blokuje przeskakiwanie drugiego przycisku na dół */
     width: 100%;
-    max-width: 500px;
-    margin: 0 auto;
+    max-width: 600px;
+    margin: 30px auto 0;
 }
 
 .scroll-btn, .wedding-btn {
@@ -249,11 +250,11 @@ footer {
         padding: 40px 15px; 
     }
     .names-wrapper { 
-        flex-direction: column; /* Układ pionowy na telefonie ratuje kompozycję */
+        flex-direction: column; 
         gap: 10px; 
     }
     .bride-name, .groom-name { 
-        font-size: 4rem; 
+        font-size: 3.8rem; 
     }
     .wedding-logo-wrapper { 
         width: 70px; 
@@ -267,15 +268,25 @@ footer {
         font-size: 0.95rem;
         margin-bottom: 35px;
     }
+
+    /* --- POPRAWKA DLA PRZYCISKÓW OBOK SIEBIE NA TELEFONIE --- */
     .hero-actions { 
-        flex-direction: column; 
-        gap: 12px; 
-        width: 100%; 
+        flex-direction: row !important; /* Blokujemy wymuszenie pionu */
+        gap: 10px; 
+        padding: 0;
+        width: 100%;
     }
-    .scroll-btn, .wedding-btn, .upload-container { 
-        width: 100%; 
-        box-sizing: border-box;
+    .scroll-btn, .wedding-btn { 
+        width: 50%; /* Każdy przycisk zajmuje idealnie połowę szerokości */
+        text-align: center;
+        padding: 12px 10px; /* Zmniejszony padding boczny, aby napisy się mieściły */
+        font-size: 0.8rem;  /* Delikatnie mniejsza czcionka na smartfony */
+        white-space: nowrap; /* Zapobiega łamaniu tekstu wewnątrz przycisku */
     }
+    .upload-container {
+        width: 50%; /* Kontener na przycisk Google zajmuje drugą połowę */
+    }
+    /* -------------------------------------------------------- */
     
     .plan-section {
         padding: 60px 15px;

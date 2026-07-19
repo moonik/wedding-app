@@ -1,4 +1,3 @@
-<!-- Kontener na spadające płatki (generowany przez TS) -->
 <div id="particles-container"></div>
 <div class="confetti-overlay" *ngIf="showConfetti">
   <span class="confetti-piece"></span>
@@ -31,22 +30,24 @@
       <div class="envelope-instruction">Kliknij pieczątkę, aby otworzyć kopertę</div>
     </div>
   </div>
-</div>
+  </div>
 
 <div class="page-wrapper" *ngIf="isEnvelopeOpened">
-  <!-- --- PEŁNOEKRANOWA SEKCJA POWITALNA (HERO) --- -->
+  
   <header class="wedding-hero">
   <div class="hero-parallax-layer layer-1"></div>
   <div class="hero-parallax-layer layer-2"></div>
   <div class="hero-parallax-layer layer-3"></div>
   <div class="hero-content">
     
-    <!-- Imiona i Obrączki -->
+    <div class="hero-photo-wrapper">
+      <img src="/photo.png" alt="Agnieszka i Roman" class="hero-photo" />
+    </div>
+    
     <div class="names-wrapper">
       <span class="bride-name">Agnieszka</span>
       <div class="wedding-logo-wrapper">
         <svg class="rings-svg" viewBox="0 0 100 100" aria-hidden="true" role="img">
-          <!-- Proste, pojedyncze obrączki bez dodatkowych kropek -->
           <circle cx="36" cy="52" r="22" fill="none" stroke="#d4b16b" stroke-width="5"/>
           <circle cx="64" cy="52" r="22" fill="none" stroke="#d4b16b" stroke-width="5"/>
         </svg>
@@ -61,14 +62,13 @@
       <span class="countdown-hero__label">Do najpiękniejszego dnia w naszym życiu pozostało...</span>
       <span class="countdown-hero__value">{{ countdownText }}</span>
     </div>
-
-    <!-- Akcje: Plan dnia i Twój autorski system Uploadu -->
+    
     <div class="hero-actions">
       <button (click)="scrollToPlan()" class="scroll-btn">Zobacz Plan Dnia</button>
       <button (click)="scrollToMenu()" class="scroll-btn">Zobacz Menu Weselne</button>
 
       <div class="upload-container">
-        <!-- KROK 1: Logowanie z Google -->
+        
         <button 
           *ngIf="!driveService.accessToken()" 
           (click)="onLogin()" 
@@ -77,7 +77,7 @@
           Podziel się zdjęciami ♥
         </button>
 
-        <!-- KROK 2: Wybór zdjęć po autoryzacji -->
+        
         <ng-container *ngIf="driveService.accessToken()">
           <label 
             for="weddingFile" 
@@ -96,7 +96,7 @@
             style="display: none;">
         </ng-container>
 
-        <!-- Tekst postępu wysyłania plików -->
+        
         <div *ngIf="isUploading" class="upload-progress-text">
           {{ uploadProgressText }}
         </div>
@@ -104,13 +104,11 @@
     </div>
   </div>
 </header>
-
-<!-- --- SEKCJA PLANU UROCZYSTOŚCI --- -->
+ 
 <section class="plan-section" id="plan-dnia">
   <h2 class="plan-title">Plan uroczystości</h2>
   
   <div class="timeline">
-      <!-- 15:00 -->
       <div class="timeline-item reveal">
           <div class="timeline-content">
               <span class="time">15:00</span>
@@ -119,7 +117,6 @@
           </div>
       </div>
 
-      <!-- 16:00 -->
       <div class="timeline-item reveal">
           <div class="timeline-content">
               <span class="time">17:00</span>
@@ -128,7 +125,6 @@
           </div>
       </div>
 
-      <!-- 24:00 -->
       <div class="timeline-item reveal">
           <div class="timeline-content">
               <span class="time">00:00</span>
@@ -137,7 +133,6 @@
           </div>
       </div>
 
-      <!-- 03:00 -->
       <div class="timeline-item reveal">
           <div class="timeline-content">
               <span class="time">03:00</span>
@@ -147,8 +142,7 @@
       </div>
   </div>
 </section>
-
-<!-- --- SEKCJA MENU WESELANEGO --- -->
+ 
 <section class="menu-section" id="menu-weselne">
   <h2 class="menu-title">Menu weselne</h2>
 

@@ -1,7 +1,6 @@
-/* --- Konfiguracja stylów lokalnych komponentu --- */
 .wedding-hero {
     height: 100vh;
-    height: 100dvh; /* Dynamiczna wysokość dla iPhone (ignoruje paski Safari) */
+    height: 100dvh;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -55,6 +54,23 @@
     margin: 0 auto;
 }
 
+.hero-photo-wrapper {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 28px;
+}
+
+.hero-photo {
+    width: clamp(240px, 30vw, 420px);
+    height: auto;
+    max-height: 420px;
+    object-fit: contain;
+    border-radius: 24px;
+    box-shadow: 0 30px 70px rgba(0, 0, 0, 0.28);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    background: transparent;
+}
+
 .names-wrapper {
     display: flex;
     align-items: center;
@@ -89,7 +105,7 @@
     justify-content: center;
     width: 85px;
     height: 85px;
-    flex-shrink: 0; /* Zabezpieczenie przed spłaszczeniem loga na Safari */
+    flex-shrink: 0;
 }
 
 .rings-svg {
@@ -153,6 +169,13 @@
     .countdown-hero__value {
         font-size: 1.4rem;
     }
+
+    .hero-photo {
+        width: clamp(160px, 45vw, 300px);
+        height: auto;
+        max-height: 300px;
+        object-fit: contain;
+    }
 }
 
 .hero-content {
@@ -162,11 +185,10 @@
     align-items: center;
 }
 
-/* --- Przyciski akcji --- */
 .hero-actions {
     display: flex;
     flex-wrap: wrap;
-    gap: 15px;           /* Elegancki odstęp między przyciskami */
+    gap: 15px;
     align-items: center;
     justify-content: center;
     width: 100%;
@@ -193,7 +215,7 @@
     width: auto;
     min-height: 48px;
     appearance: none;
-    -webkit-appearance: none; /* Usuwa natywne style Apple z buttonów */
+    -webkit-appearance: none;
     box-shadow: 0 8px 24px rgba(0, 0, 0, 0.18);
 }
 
@@ -467,7 +489,6 @@
     font-style: italic;
 }
 
-/* --- Sekcja Planu Uroczystości --- */
 .plan-section {
     padding: 80px 20px;
     max-width: 800px;
@@ -487,20 +508,18 @@
     color: #f7e4ce;
 }
 
-/* Ensure section titles are visually aligned */
 .plan-section,
 .menu-section {
-    padding-top: 48px; /* move titles upward inside sections */
+    padding-top: 48px;
 }
 
 .plan-title,
 .menu-title {
-    margin: 0 0 22px; /* larger gap below title to separate from content */
+    margin: 0 0 22px;
     padding: 0;
     line-height: 1.05;
 }
 
-/* Mobile overrides to align section titles on small screens */
 @media (max-width: 520px) {
     .plan-section, .menu-section {
         padding-top: 32px !important;
@@ -533,11 +552,11 @@
     padding: 10px 0;
 }
 
-.timeline::before {
+    .timeline::before {
     content: '';
     position: absolute;
     top: 0;
-    left: 25px; /* Delikatne przesunięcie linii dla lepszego balansu */
+    left: 25px;
     width: 2px;
     height: 100%;
     background-color: #e4b7a0;

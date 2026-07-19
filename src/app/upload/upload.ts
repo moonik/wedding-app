@@ -21,7 +21,6 @@ export class UploadComponent implements OnInit, OnDestroy {
   isEnvelopeOpened = false;
   isEnvelopeOpening = false;
 
-  // 2. Wstrzyknij public cdr: ChangeDetectorRef w konstruktorze
   constructor(public driveService: DriveService, public cdr: ChangeDetectorRef) {}
 
   ngOnInit() {
@@ -164,7 +163,7 @@ export class UploadComponent implements OnInit, OnDestroy {
     this.isUploading = true;
     let completedCount = 0;
     
-    const CONCURRENCY_LIMIT = 3; 
+    const CONCURRENCY_LIMIT = 3;
     const runningPool: Promise<void>[] = [];
 
     this.uploadProgressText = `Rozpoczynam wysyłanie ${totalFiles} zdjęć...`;
@@ -174,7 +173,7 @@ export class UploadComponent implements OnInit, OnDestroy {
         .then(() => {
           completedCount++;
           this.uploadProgressText = `Wysłano ${completedCount} z ${totalFiles} zdjęć...`;
-          this.cdr.detectChanges(); // Wymuszaj odświeżanie licznika zdjęć w trakcie
+          this.cdr.detectChanges();
         })
         .catch((err) => {
           console.error(`Pominięto plik ${file.name} z powodu błędu.`, err);
@@ -192,15 +191,12 @@ export class UploadComponent implements OnInit, OnDestroy {
 
     await Promise.all(runningPool);
 
-    // Koniec wysyłania: Zmieniamy flagi
     this.isUploading = false;
     this.uploadProgressText = '';
-    input.value = ''; 
+    input.value = '';
 
-    // 3. KLUCZOWA POPRAWKA: Wymuś natychmiastowe przerysowanie HTML!
     this.cdr.detectChanges();
 
-    // Pokazujemy efekt konfetti, a powiadomienie po jego zakończeniu
     this.triggerConfetti(() => {
       alert(`Sukces! Wszystkie zdjęcia (${totalFiles}) zostały zapisane w naszej ślubnej galerii Google Drive. Dziękujemy!`);
     });

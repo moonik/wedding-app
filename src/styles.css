@@ -32,9 +32,8 @@ button, input, label {
     font-family: inherit;
 }
 
-/* Wyłączenie paraliżującego iPhone'a efektu fixed */
 @media (max-width: 1024px) {
     body {
-        background-attachment: scroll; /* Zapobiega rozciąganiu zdjęcia na iOS */
+        background-attachment: scroll;
     }
 }
